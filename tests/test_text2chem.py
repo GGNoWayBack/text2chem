@@ -20,6 +20,7 @@ mp = ParserPipelineBuilder() \
     .add_postprocessing(SubstituteAdditives)\
     .set_regex_parser(RegExParser)\
     .build()
+dir_path = os.path.dirname(__file__)
 
 
 class TestText2chem(unittest.TestCase):
@@ -28,7 +29,7 @@ class TestText2chem(unittest.TestCase):
         """
         test formulas
         """
-        testdata = json.loads(open("formulas.json", encoding="utf-8").read())
+        testdata = json.loads(open(os.path.join(dir_path, "formulas.json"), encoding="utf-8").read())
         for output, result in self.return_data(testdata):
             self.assertEqual(output, result)
 
@@ -36,7 +37,7 @@ class TestText2chem(unittest.TestCase):
         """
         test additives
         """
-        testdata = json.loads(open("additives.json", encoding="utf-8").read())
+        testdata = json.loads(open(os.path.join(dir_path, "additives.json"), encoding="utf-8").read())
         for output, result in self.return_data(testdata):
             self.assertEqual(output, result)
 
@@ -44,7 +45,7 @@ class TestText2chem(unittest.TestCase):
         """
         test chemical names
         """
-        testdata = json.loads(open("chemical_names.json", encoding="utf-8").read())
+        testdata = json.loads(open(os.path.join(dir_path, "chemical_names.json"), encoding="utf-8").read())
         for output, result in self.return_data(testdata):
             self.assertEqual(output, result)
 
@@ -52,7 +53,7 @@ class TestText2chem(unittest.TestCase):
         """
         test mixtures: alloys, solid solutions, composites
         """
-        testdata = json.loads(open("mixtures.json", encoding="utf-8").read())
+        testdata = json.loads(open(os.path.join(dir_path, "mixtures.json"), encoding="utf-8").read())
         for output, result in self.return_data(testdata):
             self.assertEqual(output, result)
 
@@ -60,7 +61,7 @@ class TestText2chem(unittest.TestCase):
         """
         test phases
         """
-        testdata = json.loads(open("phases.json", encoding="utf-8").read())
+        testdata = json.loads(open(os.path.join(dir_path, "phases.json"), encoding="utf-8").read())
         for output, result in self.return_data(testdata):
             self.assertEqual(output, result)
 
@@ -68,7 +69,7 @@ class TestText2chem(unittest.TestCase):
         """
         comprehensive test
         """
-        testdata = json.loads(open("comprehensive.json", encoding="utf-8").read())
+        testdata = json.loads(open(os.path.join(dir_path, "comprehensive.json"), encoding="utf-8").read())
         for output, result in self.return_data(testdata):
             self.assertEqual(output, result)
 
