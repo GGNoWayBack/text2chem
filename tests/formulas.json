@@ -1134,7 +1134,7 @@
       {
         "material_string": "Na2/3Ni1/3Co(1/3-x)Mn1/3AlxO2",
         "material_name": "",
-        "material_formula": "Na2/3Ni1/3Co(1/3-x)Mn1/3AlxO2",
+        "material_formula": "Na2/3Ni1/3Co1/3-xMn1/3AlxO2",
         "additives": [],
         "phase": "",
         "oxygen_deficiency": "",
@@ -1148,7 +1148,7 @@
         "elements_x": {},
         "composition": [
           {
-            "formula": "Na2/3Ni1/3Co(1/3-x)Mn1/3AlxO2",
+            "formula": "Na2/3Ni1/3Co1/3-xMn1/3AlxO2",
             "amount": "1",
             "elements": {
               "Na": "0.667",
@@ -1165,6 +1165,86 @@
               "Mn": "0.333",
               "Al": "x",
               "O": "2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "material": "(Cu1/3Nb2/3)1/4Ti(3/4-x)ZrxO2",
+    "parser_output": [
+      {
+        "material_string": "(Cu1/3Nb2/3)1/4Ti(3/4-x)ZrxO2",
+        "material_name": "",
+        "material_formula": "(Cu1/3Nb2/3)1/4Ti3/4-xZrxO2",
+        "additives": [],
+        "phase": "",
+        "oxygen_deficiency": "",
+        "amounts_x": {
+          "x": {
+            "values": [],
+            "max_value": null,
+            "min_value": null
+          }
+        },
+        "elements_x": {},
+        "composition": [
+          {
+            "formula": "(Cu1/3Nb2/3)1/4Ti3/4-xZrxO2",
+            "amount": "1",
+            "elements": {
+              "Cu": "0.083",
+              "Nb": "0.167",
+              "Ti": "0.75-x",
+              "Zr": "x",
+              "O": "2"
+            },
+            "species": {
+              "Cu": "0.083",
+              "Nb": "0.167",
+              "Ti": "0.75-x",
+              "Zr": "x",
+              "O": "2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "material": "Nd(Zn1/2Ti(1/2+x))O3+2x",
+    "parser_output": [
+      {
+        "material_string": "Nd(Zn1/2Ti(1/2+x))O3+2x",
+        "material_name": "",
+        "material_formula": "Nd(Zn1/2Tix+1/2)O3+2x",
+        "additives": [],
+        "phase": "",
+        "oxygen_deficiency": "",
+        "amounts_x": {
+          "x": {
+            "values": [],
+            "max_value": null,
+            "min_value": null
+          }
+        },
+        "elements_x": {},
+        "composition": [
+          {
+            "formula": "Nd(Zn1/2Tix+1/2)O3+2x",
+            "amount": "1",
+            "elements": {
+              "Zn": "0.5",
+              "Ti": "x+0.5",
+              "Nd": "1",
+              "O": "2*x+3"
+            },
+            "species": {
+              "Zn": "0.5",
+              "Ti": "x+0.5",
+              "Nd": "1",
+              "O": "2*x+3"
             }
           }
         ]
