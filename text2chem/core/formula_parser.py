@@ -57,7 +57,7 @@ def __get_composition(init_formula):
         return OrderedDict()
 
     formula_dict = OrderedDict()
-    __parse_parentheses(init_formula, "1", formula_dict)
+    formula_dict, _ = __parse_parentheses(init_formula, "1", formula_dict)
 
     """
     refinement of non-variable values
@@ -75,11 +75,11 @@ def __get_composition(init_formula):
 
 
 def __parse_parentheses(init_formula, init_factor, curr_dict):
-    re_in_parentheses = r"\(((?>[^\(\)]+|(?R))*)\)\s*([-*\.\da-z\+/]*)"
+    re_in_parentheses = r"\(((?>[^\(\)]+|(?R))*)\)\s*(\([-*.\da-z+/]*\)|[-*.\da-z+/]*)"
     for m in re.finditer(re_in_parentheses, init_formula):
         factor = m.group(2) if m.group(2) != "" else "1"
         factor = simplify("(" + str(init_factor) + ")*(" + str(factor) + ")")
-        init_formula = init_formula.replace(m.group(0), "") if __parse_parentheses(m.group(1), factor, curr_dict) \
+        init_formula = init_formula.replace(m.group(0), "") if __parse_parentheses(m.group(1), factor, curr_dict)[1] \
             else init_formula.replace(m.group(0), m.group(1))
 
     unit_sym_dict = __get_sym_dict(init_formula, init_factor)
@@ -92,7 +92,7 @@ def __parse_parentheses(init_formula, init_factor, curr_dict):
         else:
             curr_dict[el] = amt
 
-    return bool(unit_sym_dict)
+    return curr_dict, bool(unit_sym_dict)
 
 
 def __get_sym_dict(f, factor):
