@@ -3,9 +3,9 @@ import json
 
 __filename = os.path.dirname(os.path.realpath(__file__))
 
-pubchem_dictionary = json.loads(open(os.path.join(__filename, "resources/terms_dictionary.json")).read())
-default_abbreviations = json.loads(open(os.path.join(__filename, "resources/acronyms_dictionary.json")).read())
-ions_table = json.loads(open(os.path.join(__filename, "resources/ions_dictionary.json")).read())
+pubchem_dictionary = json.loads(open(os.path.join(__filename, "resources/terms_dictionary.json"), encoding="utf8").read())
+default_abbreviations = json.loads(open(os.path.join(__filename, "resources/acronyms_dictionary.json"), encoding="utf8").read())
+ions_table = json.loads(open(os.path.join(__filename, "resources/ions_dictionary.json"), encoding="utf8").read())
 
 element2name = ions_table.get("elements")
 list_of_elements_1 = {el for el in element2name.keys() if len(el) == 1}
