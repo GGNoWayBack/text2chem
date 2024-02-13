@@ -54,3 +54,22 @@ class TestParser(unittest.TestCase):
         formula_dict = OrderedDict()
         formula_dict, _ = parse_parentheses('(Cu1/3Nb2/3)(1/4-y-x)Ti3/4-xZr2*x+yO2', "1", formula_dict)
         self.assertEqual(formula_dict, {'Cu': '0.0833-0.333*x-0.333*y', 'Nb': '0.167-0.667*x-0.667*y', 'Ti': '0.75-x', 'Zr': '2*x+y', 'O': '2'})
+
+    def test_parse_parenthesis_no_parenthesis(self):
+        formula_dict = OrderedDict()
+        result = parse_parentheses("La 2 Fe 2", "1", formula_dict)
+
+        # assert result is True
+        assert len(formula_dict) == 2
+        assert formula_dict["La"] == "2"
+        assert formula_dict["Fe"] == "2"
+
+    def test_parse_parenthesis_simple_parenthesis(self):
+        formula_dict = OrderedDict()
+        result = parse_parentheses("Nd(La 2 Fe 2)2", "1", formula_dict)
+
+        # assert result is True
+        assert len(formula_dict) == 3
+        assert formula_dict["Nd"] == "1"
+        assert formula_dict["La"] == "4"
+        assert formula_dict["Fe"] == "4"
