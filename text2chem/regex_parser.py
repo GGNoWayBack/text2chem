@@ -75,13 +75,13 @@ class RegExParser:
         :param formula:
         :return:
         """
-        re_a = r"([0-9\.]*)"
-        re_b = r"(\([0-9\.]*)"
+        re_a = r"([0-9.]*)"
+        re_b = r"(\([0-9./]*)"
         re_x = r"([a-z]*)"
-        re_s = r"([\-\+]+)"
-        re_d = r"([0-9\.]*)"
+        re_s = r"([-+]+)"
+        re_d = r"([0-9./]*)"
         re_y = r"([a-z]+\))"
-        re_c = r"(?=[/]*([0-9\.]*))"
+        re_c = r"(?=[/]*([0-9.]*))"
         re_formula_fraction = r"(" + re_a + re_b + re_x + re_s + re_d + re_y + re_c + r")"
         formula_upd = formula
         for m in re.finditer(re_formula_fraction, formula_upd):

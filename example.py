@@ -1,4 +1,3 @@
-
 import json
 
 from text2chem.regex_parser import RegExParser
@@ -60,5 +59,12 @@ run_test(testdata)
 test phases
 """
 testdata_fn = "tests/phases.json"
+testdata = json.loads(open(testdata_fn).read())
+run_test(testdata)
+
+"""
+comprehensive test
+"""
+testdata_fn = "tests/comprehensive.json"
 testdata = json.loads(open(testdata_fn).read())
 run_test(testdata)
